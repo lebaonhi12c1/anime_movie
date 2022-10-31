@@ -35,17 +35,17 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>Sign Up</h3>
-                        <form action="#">
+                        <form action="./controller/user_controller.php" method="POST">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
+                                <input type="text" placeholder="Email address" name="signup_email">
                                 <span class="icon_mail"></span>
                             </div>
-                            <div class="input__item">
+                            <!--<div class="input__item">
                                 <input type="text" placeholder="Your Name">
                                 <span class="icon_profile"></span>
-                            </div>
+                            </div>-->
                             <div class="input__item">
-                                <input type="text" placeholder="Password">
+                                <input type="text" placeholder="Password" name="signup_password">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">Register Now</button>
