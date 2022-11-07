@@ -1,19 +1,17 @@
 <?php
     include '../model/user_model.php';
-
-    $conn = new mysqli('localhost','root','','db_anime_movie');
-    if($conn->connect_error){
-        die("Connecttion fail".$conn->connect_error);
+    include '../utils/mySql.php';
+    $conn = new mySql('localhost','anime_movie','root','');
+    $conned = $conn->getConnect();
+    if($_POST['signup_email']){
+        $newUser = new user($_POST['signup_email'],$_POST['signup_password']);
+        try {
+            $sql = "INSERT INTO user (email, password) VALUES (?,?)";
+            $stmt= $conned->prepare($sql);
+            $stmt->execute([$newUser->getEmail(), $newUser->getpassword()]);
+            echo "New record created successfully";
+        } catch (PDOException $e) {
+           echo $sql . "<br>" . $e->getMessage();
+        }
     }
-    else{
-        echo 'connect success';
-    }
-    var_dump($_POST);
-    $adduser = 'INSERT INTO user (useremail,userpassword) VALUES ("'.$_POST['signup_email'].'","'.$_POST['signup_password'].'")';
-    if($conn->query($adduser)==true){
-        die(
-            $conn->connect_error
-        );
-    }
-    echo "insert success"
 ?>      
