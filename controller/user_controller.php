@@ -8,7 +8,7 @@
         try {
             $sql = "INSERT INTO user (email, password) VALUES (?,?)";
             $stmt= $conned->prepare($sql);
-            $stmt->execute([$newUser->getEmail(), $newUser->getpassword()]);
+            $stmt->execute([$newUser->getEmail(), md5( $newUser->getpassword())]);
             echo "New record created successfully";
         } catch (PDOException $e) {
            echo $sql . "<br>" . $e->getMessage();
