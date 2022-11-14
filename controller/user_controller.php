@@ -1,17 +1,20 @@
 <?php
     include '../model/user_model.php';
     include '../utils/mySql.php';
-    $conn = new mySql('localhost','anime_movie','root','');
-    $conned = $conn->getConnect();
-    if($_POST['signup_email']){
-        $newUser = new user($_POST['signup_email'],$_POST['signup_password']);
+    if(isset($_POST['signup_email'])){
+           
+    }
+    if(isset($_POST['user_email_login'])){
+        $conn = new mySql('localhost','anime_movie','root','');
+        $conned = $conn->getConnect();
+        $loginUser = new user($_POST['user_email_login'],$_POST['user_password_login']);
         try {
-            $sql = "INSERT INTO user (email, password) VALUES (?,?)";
-            $stmt= $conned->prepare($sql);
-            $stmt->execute([$newUser->getEmail(), md5( $newUser->getpassword())]);
-            echo "New record created successfully";
-        } catch (PDOException $e) {
-           echo $sql . "<br>" . $e->getMessage();
+            $query = "SELECT * FROM user WHERE username = :username";
+            $stmt = $conned ->prepare($query);
+            $stmt ->execute([$loginUser->getEmail()]);
+            $user = $stmt ->fetch();
+            var_dump($user);
+        } catch (Throwable $th) {
+            echo 'select fail !!';
         }
     }
-?>      

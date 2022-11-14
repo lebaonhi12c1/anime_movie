@@ -37,11 +37,11 @@
                         <h3>Login</h3>
                         <form action="./controller/user_controller.php" method="POST">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address" name="user_email">
+                                <input type="text" placeholder="Email address" name="user_email_login">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="password" placeholder="Password" name="user_password">
+                                <input type="password" placeholder="Password" name="user_password_login">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">Login Now</button>

@@ -21,6 +21,11 @@
         public function getEmail(){
             return $this->user_email;
         }
+        public function getInsert(){
+            $conn  = new mySql(null,null,null,null);
+            $conn ->getConnect();
+        }
+       
     }
     
 ?>
