@@ -23,9 +23,31 @@
         }
         public function getInsert(){
             $conn  = new mySql(null,null,null,null);
-            $conn ->getConnect();
+            $conned = $conn ->getConnect();
+            try {
+                $sql = "INSERT INTO users (email,password) VALUES (?,?)";
+                $stmt= $conned->prepare($sql);
+                $stmt->execute([$this->user_email,$this->user_password]);
+                echo 'insert successfully !!';
+            } catch (Throwable $th) {
+                echo 'select fail !!';
+            }
+            $conn->disConnect($conned);
         }
-       
+        public function getUser(){
+            $conn  = new mySql(null,null,null,null);
+            $conned = $conn ->getConnect();
+            try {
+                $stmt = $conned->prepare("SELECT * FROM users WHERE email=?");
+                $stmt->execute([$this->user_email]); 
+                $user = $stmt->fetch();
+                return $user;
+                echo 'get user successfully !!';
+            } catch (Throwable $th) {
+                echo ' fail !!';
+            }
+
+            $conn->disConnect($conned);
+        }
     }
-    
 ?>

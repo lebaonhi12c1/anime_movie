@@ -45,7 +45,11 @@
                                 <span class="icon_profile"></span>
                             </div>-->
                             <div class="input__item">
-                                <input type="text" placeholder="Password" name="signup_password">
+                                <input type="password" placeholder="Password" name="signup_password">
+                                <span class="icon_lock"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="password" placeholder="Pre Password" name="signup_pre_password">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">Register Now</button>

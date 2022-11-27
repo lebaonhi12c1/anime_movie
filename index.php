@@ -31,6 +31,7 @@
 
     <!-- Js Plugins -->
     <?php include_once "./layout/script.php"?>
+    <script src="./getdata.js" type="module"></script>
 </body>
 
 </html>

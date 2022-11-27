@@ -67,6 +67,7 @@
               } catch(PDOException $e) {
                 echo "Connection failed: " . $e->getMessage();
               }
+            return $conn;
         }
         
         public function disConnect($connect){
