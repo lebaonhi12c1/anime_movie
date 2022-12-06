@@ -32,18 +32,23 @@
     <!-- Anime Section Begin -->
     <section class="anime-details spad">
         <div class="container">
-            <div class="anime__details__content">
+            <?php
+                include '/wamp/www/anime_movie/controller/anime_controller.php';
+                
+                if(isset($anime_details)){
+                    echo '
+                <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="img/anime/details-pic.jpg">
+                        <div class="anime__details__pic set-bg" data-setbg='.$anime_details['image'].'>
                             <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                            <div class="view"><i class="fa fa-eye"></i>'.$anime_details['ranking'].'</div>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="anime__details__text">
                             <div class="anime__details__title">
-                                <h3>Fate Stay Night: Unlimited Blade</h3>
+                                <h3>'.$anime_details['title'].'</h3>
                                 <span>フェイト／ステイナイト, Feito／sutei naito</span>
                             </div>
                             <div class="anime__details__rating">
@@ -56,10 +61,7 @@
                                 </div>
                                 <span>1.029 Votes</span>
                             </div>
-                            <p>Every human inhabiting the world of Alcia is branded by a “Count” or a number written on
-                                their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
-                                never to be seen again. But her mother’s last words send Hina on a quest to find a
-                                legendary hero from the Waste War - the fabled Ace!</p>
+                            <p>'.$anime_details['description'].'</p>
                             <div class="anime__details__widget">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
@@ -68,7 +70,7 @@
                                             <li><span>Studios:</span> Lerche</li>
                                             <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
                                             <li><span>Status:</span> Airing</li>
-                                            <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>
+                                            <li><span>Genre:</span>'.$anime_details['genres'].'</li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -84,13 +86,17 @@
                             </div>
                             <div class="anime__details__btn">
                                 <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="#" class="watch-btn"><span>Watch Now</span> <i
+                                <a href="'.$anime_details['video'].'" class="watch-btn"><span>Watch Now</span> <i
                                         class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            ';
+                }
+            ?>
+            
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <div class="anime__details__review">

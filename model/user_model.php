@@ -32,7 +32,6 @@
             } catch (Throwable $th) {
                 echo 'select fail !!';
             }
-            $conn->disConnect($conned);
         }
         public function getUser(){
             $conn  = new mySql(null,null,null,null);
@@ -48,6 +47,31 @@
             }
 
             $conn->disConnect($conned);
+        }
+        public function getAlluser(){
+            $conn  = new mySql(null,null,null,null);
+            $conned = $conn ->getConnect();
+            try {
+                $stmt = $conned->query("SELECT * FROM users");
+                $user = $stmt->fetchAll();
+                return $user;
+                echo 'get user successfully !!';
+            } catch (Throwable $th) {
+                echo ' fail !!';
+            }
+            $conn->disConnect($conned);
+        }
+        public function getDeleteUser(){
+            $conn  = new mySql(null,null,null,null);
+            $conned = $conn ->getConnect();
+            try {
+                $sql = "DELETE FROM users WHERE email=?";
+                $stmt= $conned->prepare($sql);
+                $stmt->execute([$this->user_email]);
+            } catch (Throwable $th) {
+                echo $th;
+            }
+
         }
     }
 ?>

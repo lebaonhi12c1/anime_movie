@@ -28,6 +28,7 @@
             } catch (Throwable $th) {
                 echo $th;
             }
+            $conn->disConnect($conned);
         }
         public function getAnime(){
             $conn  = new mySql(null,null,null,null);

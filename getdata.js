@@ -7,7 +7,6 @@ function getdata(){
             'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
         }
     };
-    
     fetch('https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=Fullmetal&genres=Fantasy%2CDrama&sortBy=ranking&sortOrder=asc', options)
         .then(response => response.json())
         .then(response => console.log(response))

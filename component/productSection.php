@@ -1,3 +1,5 @@
+
+
 <section class="product spad">
       <div class="container">
         <div class="row">
@@ -18,6 +20,34 @@
                 </div>
               </div>
               <div class="row">
+                <?php
+                  include '/wamp/www/anime_movie/controller/anime_controller.php';
+                  foreach ($animes as $value) {
+                    echo '
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="product__item">
+                      <div
+                        class="product__item__pic set-bg"
+                        data-setbg='.$value['image'].'
+                      >
+                        <div class="ep">18 / 18</div>
+                        <div class="comment">
+                          <i class="fa fa-comments"></i> 11
+                        </div>
+                        <div class="view"><i class="fa fa-eye"></i> '.$value['ranking'].'</div>
+                      </div>
+                      <div class="product__item__text">
+                        <ul>
+                          <li>Active</li>
+                          <li>Movie</li>
+                        </ul>
+                        <a href="anime-details.php?animeid='.$value['id'].'" style="color: #fff;">'.$value['title'].'</a>
+                      </div>
+                    </div>
+                  </div>
+                    ';
+                  }
+                ?>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                   <div class="product__item">
                     <div

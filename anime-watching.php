@@ -36,6 +36,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="anime__video__player">
+                        <?php
+                            include '/wamp/www/anime_movie/controller/anime_controller.php';
+                        ?>
                         <video id="player" playsinline controls data-poster="./videos/anime-watch.jpg">
                             <source src="videos/1.mp4" type="video/mp4" />
                             <!-- Captions are optional -->
