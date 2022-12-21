@@ -35,39 +35,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="anime__video__player">
+                    <div class="anime__video__player d-flex justify-content-center align-items-center">
                         <?php
-                            include '/wamp/www/anime_movie/controller/anime_controller.php';
+                            include '/wamp/www/anime_movie/controller/movie_controller.php';
+                            if(isset($movie_id)){
+                
+                                echo '
+                                <video width="620" height="540" controls>
+                                    <source src="'.$movie_id['link'].'" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>';
+                            }
+                            else{
+                                echo '
+                                <video width="620" height="540" controls>
+                                    <source src="'.$movies[0]['link'].'" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>';
+                            }  
                         ?>
-                        <video id="player" playsinline controls data-poster="./videos/anime-watch.jpg">
-                            <source src="videos/1.mp4" type="video/mp4" />
-                            <!-- Captions are optional -->
-                            <track kind="captions" label="English captions" src="#" srclang="en" default />
-                        </video>
+                        
                     </div>
                     <div class="anime__details__episodes">
                         <div class="section-title">
                             <h5>List Name</h5>
                         </div>
-                        <a href="#">Ep 01</a>
-                        <a href="#">Ep 02</a>
-                        <a href="#">Ep 03</a>
-                        <a href="#">Ep 04</a>
-                        <a href="#">Ep 05</a>
-                        <a href="#">Ep 06</a>
-                        <a href="#">Ep 07</a>
-                        <a href="#">Ep 08</a>
-                        <a href="#">Ep 09</a>
-                        <a href="#">Ep 10</a>
-                        <a href="#">Ep 11</a>
-                        <a href="#">Ep 12</a>
-                        <a href="#">Ep 13</a>
-                        <a href="#">Ep 14</a>
-                        <a href="#">Ep 15</a>
-                        <a href="#">Ep 16</a>
-                        <a href="#">Ep 17</a>
-                        <a href="#">Ep 18</a>
-                        <a href="#">Ep 19</a>
+                        <?php
+                            for ($i=0; $i < count($movies) ; $i++) { 
+                                echo '<a href="anime-watching.php?movie_id='.$movies[$i]['id'].'&&anime_id='.$movies[$i]['id_anime'].'">Ep 0'.($i+1).'</a>';
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

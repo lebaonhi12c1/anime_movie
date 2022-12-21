@@ -52,7 +52,6 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -61,11 +60,12 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+
   </head>
 
   <body>
     <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-wrapper layout-content-navbar ">
       <div class="layout-container">
         <!-- Menu -->
 
@@ -641,6 +641,13 @@
                             name="admin_create_prepassword"
                           />
                         </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-message">Is Admin</label>
+                          <input
+                            type="checkbox"
+                            name="admin_create_isadmin"
+                          />
+                        </div>
                         <button type="submit" class="btn btn-primary">Send</button>
                       </form>
                     </div>
@@ -690,7 +697,7 @@
               </div>
             </div>
             <!-- / Content -->
-
+          
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">

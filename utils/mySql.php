@@ -69,9 +69,9 @@
             return $conn;
         }
         
-        public function disConnect($connect){
-            return $connect->close();
-        }
+        // public function disConnect($connect){
+        //     return $connect->close();
+        // }
     }
 
 ?>

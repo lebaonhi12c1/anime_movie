@@ -86,7 +86,7 @@
                             </div>
                             <div class="anime__details__btn">
                                 <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="'.$anime_details['video'].'" class="watch-btn"><span>Watch Now</span> <i
+                                <a href="anime-watching.php?anime_id='.$anime_details['id'].'" class="watch-btn"><span>Watch Now</span> <i
                                         class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
