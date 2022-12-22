@@ -67,9 +67,9 @@
             $conn  = new mySql(null,null,null,null);
             $conned = $conn ->getConnect();
             try {
-                $sql = "UPDATE users SET email=?, password=?, isAdmin=? WHERE email=?";
+                $sql = "UPDATE users SET password=?, isAdmin=? WHERE email=?";
                 $stmt= $conned->prepare($sql);
-                $stmt->execute([$this->user_email, $this->user_password, $this->is_admin]);
+                $stmt->execute([$this->user_password, $this->is_admin, $this->user_email]);
             } catch (Throwable $th) {
                 echo $th;
             }

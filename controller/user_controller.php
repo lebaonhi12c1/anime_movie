@@ -76,5 +76,4 @@
             echo 'that bai';
         }
     }
-    var_dump($_POST);
 ?>
