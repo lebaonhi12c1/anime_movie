@@ -594,65 +594,133 @@
           </nav>
 
           <!-- / Navbar -->
-
+          <?php  include '/wamp/www/anime_movie/controller/user_controller.php';?>
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
             <div class="card mb-4">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                      <h5 class="mb-0">Basic Layout</h5>
-                      <small class="text-muted float-end">Default label</small>
+                    <div class="d-flex align-items-center">
+                      <div class="item col-6">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                          <h5 class="mb-0">Basic Layout</h5>
+                          <small class="text-muted float-end">Default label</small>
+                        </div>
+                        <div class="card-body">
+                          <form action="http://localhost:/anime_movie/controller/user_controller.php" method="POST">
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-email">Email</label>
+                              <div class="input-group input-group-merge">
+                                <input
+                                  type="email"
+                                  id="basic-default-email"
+                                  class="form-control"
+                                  placeholder="Email"
+                                  aria-label="john.doe"
+                                  aria-describedby="basic-default-email2"
+                                  name="admin_create_email"
+                                />
+                                <span class="input-group-text" id="basic-default-email2">@example.com</span>
+                              </div>
+                              <div class="form-text">You can use letters, numbers & periods</div>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-phone">Password</label>
+                              <input
+                                type="password"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="Password"
+                                name="admin_create_password"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-message">Pre Password</label>
+                              <input
+                                type="password"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="Pre Password"
+                                name="admin_create_prepassword"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-message">Is Admin</label>
+                              <input
+                                type="checkbox"
+                                name="admin_create_isadmin"
+                              />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                          </form>
+                          
+                        </div>
+                        
+                      </div>
+                      <div class="item col-6">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                          <h5 class="mb-0">Basic Layout</h5>
+                          <small class="text-muted float-end">Default label</small>
+                        </div>
+                        <div class="card-body">
+                          <form action="http://localhost:/anime_movie/controller/user_controller.php" method="POST">
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-email">Email</label>
+                              <div class="input-group input-group-merge">
+                                <input
+                                  readonly
+                                  type="email"
+                                  id="basic-default-email"
+                                  class="form-control"
+                                  placeholder="Email"
+                                  aria-label="john.doe"
+                                  aria-describedby="basic-default-email2"
+                                  name="admin_update_email"
+                                  value=<?php if(isset($userUpdate)){echo $userUpdate['email'];}?>
+                                  
+                                />
+                                <span class="input-group-text" id="basic-default-email2">@example.com</span>
+                              </div>
+                              <div class="form-text">You can use letters, numbers & periods</div>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-phone">Password</label>
+                              <input
+                                type="password"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="Password"
+                                name="admin_update_password"
+                                value=<?php if(isset($userUpdate)){echo $userUpdate['password'];}?>
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-message">Pre Password</label>
+                              <input
+                                type="password"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="Pre Password"
+                                name="admin_update_prepassword"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-message">Is Admin</label>
+                              <input
+                                type="checkbox"
+                                name="admin_update_isadmin"
+                                <?php if(isset($userUpdate)){
+                                  echo $userUpdate['isAdmin'] == '1' ? 'checked': '';
+                                }?>
+                              />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                          </form>
+                        </div>
                     </div>
-                    <div class="card-body">
-                      <form action="http://localhost:/anime_movie/controller/user_controller.php" method="POST">
-                        <div class="mb-3">
-                          <label class="form-label" for="basic-default-email">Email</label>
-                          <div class="input-group input-group-merge">
-                            <input
-                              type="email"
-                              id="basic-default-email"
-                              class="form-control"
-                              placeholder="Email"
-                              aria-label="john.doe"
-                              aria-describedby="basic-default-email2"
-                              name="admin_create_email"
-                            />
-                            <span class="input-group-text" id="basic-default-email2">@example.com</span>
-                          </div>
-                          <div class="form-text">You can use letters, numbers & periods</div>
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="basic-default-phone">Password</label>
-                          <input
-                            type="password"
-                            id="basic-default-phone"
-                            class="form-control phone-mask"
-                            placeholder="Password"
-                            name="admin_create_password"
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="basic-default-message">Pre Password</label>
-                          <input
-                            type="password"
-                            id="basic-default-phone"
-                            class="form-control phone-mask"
-                            placeholder="Pre Password"
-                            name="admin_create_prepassword"
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="basic-default-message">Is Admin</label>
-                          <input
-                            type="checkbox"
-                            name="admin_create_isadmin"
-                          />
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send</button>
-                      </form>
-                    </div>
-                    <div class="card">
-                <h5 class="card-header">Table Basic</h5>
+                    <!-- <div class="card"> -->
+            </div>
+            <div class="">
+            <h5 class="card-header">Table Basic</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
@@ -664,7 +732,6 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                       <?php
-                        include '/wamp/www/anime_movie/controller/user_controller.php';
                         if(isset($userArray)){
                           foreach ($userArray as $value) {
                             echo '
@@ -677,7 +744,7 @@
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="javascript:void(0);"
+                                  <a class="dropdown-item" href="http://localhost/anime_movie/sneat-1.0.0/html/manager_user.php?update='.$value['email'].'"
                                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                   >
                                   <a class="dropdown-item" href="http://localhost/anime_movie/controller/user_controller.php?delete='.$value['email'].'"
@@ -694,7 +761,6 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
             </div>
             <!-- / Content -->
           

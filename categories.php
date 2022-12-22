@@ -30,7 +30,7 @@
     <!-- Breadcrumb End -->
 
     <!-- Product Section Begin -->
-    <section class="product-page spad">
+    <!-- <section class="product-page spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -460,7 +460,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    <?php
+        include './component/productSection.php';
+    ?>
 
     <!-- Footer Section Begin -->
     <?php include "./component/footer.php" ?>

@@ -32,7 +32,6 @@
                     session_start();
                     $_SESSION['user'] = $user;
                     var_dump($_SESSION);
-                   
                 }
                 else{
                     header("Location: http://localhost/anime_movie/index.php");
@@ -62,4 +61,20 @@
         $userDelete->getDeleteUser();
         header('Location: http://localhost/anime_movie/sneat-1.0.0/html/manager_user.php');
     }
+    if(isset($_GET['update'])){
+        $renderUpdate = new user($_GET['update'],null,0);
+        $userUpdate = $renderUpdate->getUser();
+    }
+    if(isset($_POST['admin_update_email'])){
+        if($_POST['admin_update_password'] == $_POST['admin_update_prepassword']){
+            $user = new user($_POST['admin_update_email'],md5($_POST['admin_update_password']),isset($_POST['admin_update_isadmin'])?1:0);
+            $user->getUpdateUser();
+            header('Location: http://localhost/anime_movie/sneat-1.0.0/html/manager_user.php');
+            echo 'thanh cong';
+        }
+        else{
+            echo 'that bai';
+        }
+    }
+    var_dump($_POST);
 ?>

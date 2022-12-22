@@ -13,12 +13,11 @@
             $conn  = new mySql(null,null,null,null);
             $conned = $conn ->getConnect();
             try {
-                $sql = "INSERT INTO movie (link,id_anime) VALUES (?,?)";
+                $sql = "INSERT INTO movie (id,link,id_anime) VALUES (?,?,?)";
                 $stmt= $conned->prepare($sql);
-                $stmt->execute([$this->link, $this->id_anime]);
+                $stmt->execute([$this->id,$this->link, $this->id_anime]);
                 echo 'insert successfully !!';
             } catch (Throwable $th) {
-                echo $th;
             }
            // $conn->disConnect($conned);
         }
